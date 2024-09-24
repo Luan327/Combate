@@ -6,17 +6,21 @@ public class Champions {
     private int attack;
     private int armor;
 
-    public Champions(){}
+    public Champions() {
+    }
+
     public Champions(String name, int life, int attack, int armor) {
         this.name = name;
         this.life = life;
         this.attack = attack;
         this.armor = armor;
     }
-    public void setName(String name){
+
+    public void setName(String name) {
         this.name = name;
     }
-    public String getName(){
+
+    public String getName() {
         return name;
     }
 
@@ -43,13 +47,24 @@ public class Champions {
     public void setArmor(int armor) {
         this.armor = armor;
     }
-    public void takeDamage(Champions other){
 
+    public void takeDamage(Champions other) {
+        if (other.getAttack() > this.getArmor()) {
+            this.life -= other.getAttack() - this.getArmor();
+        } else {
+            this.life -= 1;
+        }
     }
-    public String status(){
-        return "Vida= "
-                + getLife()
-                + "Armadura= "
-                + getArmor();
+    public String status() {
+        if(this.life <= 0){
+            this.life = 0;
+            return getName()+ ": "
+                    + this.life
+                    + " de vida (morreu)";
+        }else{
+            return getName()+ ": "
+                    + this.getLife()
+                    + " De vida ";
+        }
     }
 }
