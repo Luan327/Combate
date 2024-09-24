@@ -43,4 +43,13 @@ public class Champions {
     public void setArmor(int armor) {
         this.armor = armor;
     }
+    public void takeDamage(Champions other){
+
+    }
+    public String status(){
+        return "Vida= "
+                + getLife()
+                + "Armadura= "
+                + getArmor();
+    }
 }
